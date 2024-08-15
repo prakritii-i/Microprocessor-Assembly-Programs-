@@ -1,0 +1,49 @@
+95FF
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Courier New;}}
+{\colortbl ;\red0\green0\blue0;}
+\viewkind4\uc1\pard\li195\cf1\f0\fs20 MVI B 0Ah
+\par LXI H 9500h
+\par LXI D 9600h
+\par LOOP: MOV A M
+\par STAX D
+\par INX H
+\par INX D
+\par DCR B
+\par JNZ LOOP
+\par HLT\cf0 
+\par }
+<End Codes>
+20
+1| 9500| 06
+2| 9501| 0A
+3| 9502| 21
+4| 9503| 00
+5| 9504| 95
+6| 9505| 11
+7| 9506| 00
+8| 9507| 96
+9| 9508| 7E
+10| 9509| 12
+11| 950A| 23
+<End UserData>
+20
+1| 95FF| 06
+2| 9600| 0A
+3| 9601| 21
+4| 9602| 00
+5| 9603| 95
+6| 9604| 11
+7| 9605| 00
+8| 9606| 96
+9| 9607| 7E
+10| 9608| 12
+11| 9609| 23
+12| 960A| 13
+13| 960B| 05
+14| 960C| C2
+15| 960D| 07
+16| 960E| 96
+17| 960F| 76
+<End HexData>
+
+<End Comment>

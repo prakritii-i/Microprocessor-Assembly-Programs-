@@ -1,0 +1,25 @@
+8000
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Courier New;}}
+{\colortbl ;\red0\green0\blue0;}
+\viewkind4\uc1\pard\li195\cf1\f0\fs20 LXI H 2000h
+\par MVI B 0Ah
+\par MVI A 0Ah
+\par MVI C 00h
+\par BACK: ADD M
+\par JNC SKIP
+\par INR C
+\par SKIP: INX H
+\par DCR B
+\par JNZ BACK
+\par MOV M A
+\par INR H
+\par MOV M C
+\par HLT \cf0 
+\par }
+<End Codes>
+20
+<End UserData>
+20
+<End HexData>
+
+<End Comment>

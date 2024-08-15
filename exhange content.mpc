@@ -1,0 +1,40 @@
+4000
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Courier New;}}
+{\colortbl ;\red0\green0\blue0;}
+\viewkind4\uc1\pard\li195\cf1\f0\fs20 MVI A 51h
+\par STA 4000h
+\par MOV C A
+\par STA 4001h
+\par MOV B A
+\par MOV B C
+\par SUB B
+\par STA 4002h
+\par HLT
+\par \cf0 
+\par }
+<End Codes>
+20
+2| 2000| 8A
+3| 4001| 51
+<End UserData>
+20
+1| 4000| 3E
+2| 4001| 51
+3| 4002| 32
+4| 4003| 00
+5| 4004| 40
+6| 4005| 4F
+7| 4006| 32
+8| 4007| 01
+9| 4008| 40
+10| 4009| 47
+11| 400A| 41
+12| 400B| 90
+13| 400C| 32
+14| 400D| 02
+15| 400E| 40
+16| 400F| 76
+<End HexData>
+
+
+<End Comment>

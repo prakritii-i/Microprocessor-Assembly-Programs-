@@ -1,0 +1,52 @@
+8000
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Courier New;}}
+{\colortbl ;\red0\green0\blue0;}
+\viewkind4\uc1\pard\li195\cf1\f0\fs20 LXI H 2000h
+\par MVI C 0Ah
+\par MVI A 00h
+\par BACK: CMP M
+\par JNC SKIP
+\par MOV A M
+\par SKIP: INX H
+\par DCR C
+\par JNZ BACK
+\par MOV M A
+\par HLT\cf0 
+\par }
+<End Codes>
+20
+2| 2000| 35
+3| 2001| 42
+4| 2002| 28
+5| 2003| 98
+6| 2004| 56
+7| 2005| 54
+8| 2006| 43
+9| 2007| 23
+10| 2008| 45
+11| 2009| 78
+12| 200A| 98
+<End UserData>
+20
+1| 8000| 21
+2| 8001| 00
+3| 8002| 20
+4| 8003| 0E
+5| 8004| 0A
+6| 8005| 3E
+7| 8006| 00
+8| 8007| BE
+9| 8008| D2
+10| 8009| 0C
+11| 800A| 80
+12| 800B| 7E
+13| 800C| 23
+14| 800D| 0D
+15| 800E| C2
+16| 800F| 07
+17| 8010| 80
+18| 8011| 77
+19| 8012| 76
+<End HexData>
+
+<End Comment>

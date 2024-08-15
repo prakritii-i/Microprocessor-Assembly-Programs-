@@ -1,0 +1,42 @@
+8000
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Courier New;}}
+{\colortbl ;\red0\green0\blue0;}
+\viewkind4\uc1\pard\li195\cf1\f0\fs20 LXI B 7080h
+\par MVI A 40h
+\par STAX B
+\par LXI D 7090h
+\par MVI A 50h
+\par STAX D
+\par STAX B
+\par MOV A H
+\par STAX D
+\par HLT
+\par \cf0 
+\par }
+<End Codes>
+20
+2| 7090| 00
+3| 7080| 50
+<End UserData>
+20
+1| 8000| 01
+2| 8001| 80
+3| 8002| 70
+4| 8003| 3E
+5| 8004| 40
+6| 8005| 02
+7| 8006| 11
+8| 8007| 90
+9| 8008| 70
+10| 8009| 3E
+11| 800A| 50
+12| 800B| 12
+13| 800C| 02
+14| 800D| 7C
+15| 800E| 12
+16| 800F| 76
+<End HexData>
+
+
+
+<End Comment>

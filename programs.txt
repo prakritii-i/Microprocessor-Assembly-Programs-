@@ -1,0 +1,273 @@
+// swap data 
+LXI B 7080h
+MVI A 40h
+STAX B
+LXI D 7090h
+MVI A 50h
+STAX D
+LDAX B
+MOV E A
+LDAX D
+STAX B
+MOV A E
+STAX D
+HLT
+
+
+//exchange content 
+MVI A 51h
+STA 4000h
+MOV C A
+STA 4001h
+MOV B A
+MOV B C
+SUB B
+STA 4002h
+HLT
+
+
+//add two numbers 
+MVI C 00h
+LDA 2000h
+MOV B A
+LDA 2001h
+ADD B
+JNC SKIP
+INR C
+SKIP: STA 2002h
+MOV A C
+STA 2003h
+HLT
+
+// store data byte 32h into memory location 4000h 
+MVI A 32h
+STA 4000h
+
+
+// wap to add 16-bit address number in memory locations 4000h
+to 
+// 16bit addition 
+LDA 4002h
+MOV B A
+LDA 4000h
+ADD B
+STA 4004h
+LDA 4003h
+MOV C A
+LDA 4001h
+ADC C
+STA 4005h
+HLT
+
+using 	DAD
+LHLD 4000h
+XCHG
+LHLD 4002h
+DAD D
+SHLD 4004h
+HLT
+
+
+//wap to subtract the contents of memory locatoin 4000h and place the result in memory location 4002h
+
+MVI A 50h
+STA 4000h
+MOV C A
+MVI A 30h
+STA 4001h
+MOV B A
+MOV B C
+SUB B
+STA 4002h
+HLT
+
+// 16-bit subtraction
+LHLD 4000h
+XCHG
+LHLD 4002h
+MOV A E
+SUB L
+STA 4004h
+MOV A D
+SUB H
+STA 4005h
+HLT
+
+//move 10 bytes of data from one address to another 
+MVI B 0Ah
+LXI H 9500h
+LXI D 9600h
+LOOP: MOV A M
+STAX D
+INX H
+INX D
+DCR B
+JNZ LOOP
+HLT
+
+// add 2 8-bit numbers and store the value of sum and carry in diff locations 
+MVI C 00h
+MOV A M
+INX H
+MOV B M
+ADD B
+JNC SKIP
+INR C
+SKIP: INX H
+MOV M A
+INR H
+MOV M C
+HLT
+
+// add 2 16-bit numbers and store the value of sum and carry in diff locations 
+MVI C 00h
+LHLD 4000h
+XCHG
+LHLD 4002h
+MOV A E
+ADD L
+MOV L A
+MOV A D
+ADC H
+JNC LOOP
+INR C
+LOOP: MOV H A
+SHLD 4004h
+MOV A C
+STA 4006h
+HLT
+
+// add series of 10 8-bit nubrs from 2000h and store the result at 200A and 200B 
+LXI H 2000h
+MVI B 0Ah
+MVI A 0Ah
+MVI C 00h
+BACK: ADD M
+JNC SKIP
+INR C
+SKIP: INX H
+DCR B
+JNZ BACK
+MOV M A
+INR H
+MOV M C
+HLT 
+
+//largest among two 
+LXI H C001h
+MOV A M
+INX H
+CMP M
+JNC LOOP
+MOV A M
+LOOP: STA C003
+HLT
+
+//smaller among two 
+LHLD C001h
+MOV A L
+CMP H
+JNC SKIP
+MOV H L
+SKIP: MOV A H
+STA C003h
+HLT
+
+//largest in the series 
+
+LXI H 2000h
+MVI C 0Ah
+MVI A 00h
+BACK: CMP M
+JNC SKIP
+MOV A M
+SKIP: INX H
+DCR C
+JNZ BACK
+MOV M A
+HLT
+
+// exchange data 
+LXI D 9600h
+LXI H 9500h
+LOOP: MOV A M
+XCHG
+MOV B M
+MOV M A
+XCHG
+MOV M B
+INX H
+INX D
+DCR C
+JNZ LOOP
+HLT
+
+// 
+MVI B 05h
+LXI H 9500h
+LXI D 9600h
+LXI SP 9700h
+LOOP MOV A M
+MOV C A
+LDAX D
+ADD C
+MOV M A
+INX H
+INX D
+INX SP
+DCR B
+JNZ LOOP
+HLT
+
+// multiply 
+LHLD 4000h
+XCHG
+MOV B E
+LXI H 0000h
+LOOP: DAD D
+DCR B
+JNZ LOOP
+SHLD 4300h
+HLT
+
+//no. of odds and evens 
+LXI H 2000h
+MVI C 0Ah
+MVI D 00h
+MVI B 00h
+BACK: MOV A M
+RRC
+JC ODD
+INR D
+JMP SKIP
+ODD: INR B
+SKIP: INX H
+DCR C
+JNZ BACK
+MOV A D
+STA 200Ah
+MOV A B
+STA 200Bh
+HLT
+
+//1's complement
+MVI A 5Ah
+CMA
+ 
+ // 2's complement 
+ MVI A 5Ah
+CMA
+ADI 01h
+
+//1's complement 16-bit 
+LXI H 2000h
+MOV A M
+CMA
+MOV M A
+INX H
+MOV A M
+CMA
+MOV M A
+HLT
+
+//2's complement 16-bit 
